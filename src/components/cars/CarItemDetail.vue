@@ -1,10 +1,14 @@
 <template>
     <div class="card">
-        <div v-for="item in getCurrentCar" :key="item.key">
+        <div v-for="item in getСalcCarCargos" :key="item.key">
             <div class="card-image">
                 <img :src="item.car_image" alt="">
             </div>
             <div class="card-content">
+                <div class="card-row">
+                    <span>Количество вагонов: </span>
+                    <input type="number" min="1" v-model="quantity" @change="carQuantity">
+                </div>
                 <div class="card-row">
                     <span>Название: </span>
                     <span>{{ item.car_name }}</span>
@@ -52,7 +56,7 @@
                     </div>
                     <div class="card-row">
                         <span>Вес, lbs</span>
-                        <span>{{ cargo.cargo_weight_lbs }}</span>
+                        <span>{{ cargo.cargo_weight }}</span>
                     </div>
                 </div>
             </div>
@@ -66,11 +70,19 @@ export default {
     name: 'CarItemDetail',
 
     data() {
-        return {}
+        return {
+            quantity: 1
+        }
     },
     computed: {
-        getCurrentCar() {
-            return this.$store.getters.getCurrentCar
+        getСalcCarCargos() {
+            return this.$store.getters.getСalcCarCargos
+        }
+    },
+    methods: {
+        carQuantity(){
+            let quantity = this.quantity
+            this.$store.dispatch('calcCarsCargos', {quantity})
         }
     },
     mounted() {

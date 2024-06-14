@@ -37,7 +37,9 @@
             <div class="card-row">
                 <span>Тип грузов: </span>
                 <span class="card-type-cargo">
-                    <div v-for="item in item.car_type_of_cargo" :key="item.key">{{ item }}</div>
+                    <template v-for="cargos in item.car_cargos_price" :key="item.key">
+                        <p>{{cargos.cargo_type}}</p>
+                    </template>
                 </span>
             </div>
         </div>
