@@ -1,0 +1,17 @@
+[
+  {
+    "cargo_id": "wood",
+    "cargo_name": "wood",
+    "cargo_price": "200"
+  },
+  {
+    "cargo_id": "wood2",
+    "cargo_name": "wood2",
+    "cargo_price": "20"
+  },
+  {
+    "cargo_id": "tools",
+    "cargo_name": "tools",
+    "cargo_price": "20"
+  }
+]
